@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: gems-api
+    runtime: python
+    buildCommand: pip install . && pip install -r requirements.txt
+    startCommand: uvicorn gem_server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEM_ID
+        value: fcf6f88e78ea
+      - key: CONVEX_URL
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.12.0
